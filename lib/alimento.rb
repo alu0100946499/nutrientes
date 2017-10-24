@@ -8,4 +8,8 @@ require "alimento/version"
       @nombre, @proteinas, @glucidos, @lipidos = nombre, proteinas, glucidos, lipidos
     end
 
+    def val_energ
+      @proteinas*4+@glucidos*4+@lipidos*9
+    end
+
   end

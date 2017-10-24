@@ -25,5 +25,15 @@ include RSpec
       expect(@ali.lipidos).to eq(3.8)
     end
   end
+ 
+   
+  describe "# calcular el valor enegético del alimento" do
+    it "la cantidad de proteínas, glúcidos y lípidos se multiplican por su valor calórico y se suma" do
+     venergetico = @ali.val_energ
+     expect(venergetico).to eq(69)
+    end
+  end
+
+  
 
 end
