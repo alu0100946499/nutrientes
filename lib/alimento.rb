@@ -1,5 +1,11 @@
 require "alimento/version"
 
-module Alimento
-  # Your code goes here...
-end
+  class  Alimento
+      
+    attr_reader :nombre, :proteinas, :glucidos, :lipidos
+
+    def initialize(nombre, proteinas, glucidos, lipidos)
+      @nombre, @proteinas, @glucidos, @lipidos = nombre, proteinas, glucidos, lipidos
+    end
+
+  end
