@@ -5,6 +5,10 @@ class DLL
   def initialize()
     @head, @tail = nil, nil
   end
-
+  
+  def empty()
+    return true if (@head == nil && @tail == nil)
+    false
+  end
 
 end

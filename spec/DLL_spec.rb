@@ -16,6 +16,12 @@ include RSpec
         expect(@lista.tail).to eq(nil)
       end
     end
+    
+    describe "#Comprobar que la lista está vacía" do
+      it "La lista está vacía" do
+        expect(@lista.empty).to eq(true)
+      end
+    end
 
 
 
