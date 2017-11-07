@@ -13,6 +13,22 @@ class DLL
     false
   end
 
+  def to_s()
+    out = ""
+    aux = @tail
+    while (aux != nil) do
+      if(aux[:next] == nil)
+        out << "#{aux[:value]}"
+      else
+        out << "#{aux[:value]}, "
+      end
+      aux = aux.next
+    end
+
+    out
+
+  end
+
   def insert_head(*objects)
     objects.each{ |x|
       if(self.empty)
@@ -21,6 +37,7 @@ class DLL
         @head = aux
       else
         aux = Node.new(x, nil, @head)
+        @head[:next] = aux
         @head = aux
       end
     }
@@ -34,6 +51,7 @@ class DLL
         @head = aux
       else
         aux = Node.new(x, @tail, nil)
+        @tail[:prev] = aux
         @tail = aux
       end
     }

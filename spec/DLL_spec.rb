@@ -29,10 +29,6 @@ include RSpec
         aux = DLL::Node.new(2, nil, nil)
         expect(@lista.head).to eq(aux)
         expect(@lista.tail).to eq(aux)
-        @lista.insert_head(5)
-	aux1 = DLL::Node.new(5, nil, aux)
-        expect(@lista.head).to eq(aux1)
-        expect(@lista.tail).to eq(aux)
       end
     end
 
@@ -42,14 +38,15 @@ include RSpec
         aux = DLL::Node.new(2, nil, nil)
         expect(@lista.head).to eq(aux)
         expect(@lista.tail).to eq(aux)
-        @lista.insert_tail(5)
-	aux1 = DLL::Node.new(5, aux, nil)
-        expect(@lista.head).to eq(aux)
-        expect(@lista.tail).to eq(aux1)
       end
     end
   
-
+    describe "#Comprobar que se muestra bien la lista" do
+      it "Se muestra bien la lista" do
+        @lista.insert_head(1, 2, 3, 5, 7, 9)
+        expect(@lista.to_s).to eq("1, 2, 3, 5, 7, 9")
+      end
+    end 
 
 
 
