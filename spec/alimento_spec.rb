@@ -37,7 +37,7 @@ include RSpec
  
   describe "# mostrar la información formateada" do
     it "Alimento: proteínas glúcidos lípidos" do 
-      expect(@ali.write).to eq("Yogurt:        3.8 4.9 3.8")
+      expect(@ali.to_s).to eq("Yogurt:        3.8 4.9 3.8")
     end
   end
   

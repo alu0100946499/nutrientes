@@ -12,7 +12,7 @@ require "alimento/version"
       @proteinas*4+@glucidos*4+@lipidos*9
     end
 
-    def write
+    def to_s
       "%-15s" % ["#{@nombre.capitalize}: "] + "#{@proteinas} #{@glucidos} #{@lipidos}"
     end
 
