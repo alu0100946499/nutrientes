@@ -48,6 +48,26 @@ include RSpec
       end
     end 
 
+    describe "#Comprobar que se elimina bien por el frente" do
+      it "Se elimina bien" do
+        @lista.insert_head(1, 2, 3, 5, 7, 9)
+        @lista.erase_head()
+        expect(@lista.to_s).to eq("1, 2, 3, 5, 7")
+        @lista.erase_head()
+        expect(@lista.to_s).to eq("1, 2, 3, 5")
+      end
+    end  
+ 
+    describe "#Comprobar que se elimina bien por el final" do
+      it "Se elimina bien" do
+        @lista.insert_head(1, 2, 3, 5, 7, 9)
+        @lista.erase_tail()
+        expect(@lista.to_s).to eq("2, 3, 5, 7, 9")
+        @lista.erase_tail()
+        expect(@lista.to_s).to eq("3, 5, 7, 9")
+      end
+    end
+
 
 
   end

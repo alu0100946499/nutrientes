@@ -57,4 +57,19 @@ class DLL
     }
   end
 
+  def erase_head()
+    aux = @head[:prev]
+    aux[:next] = nil
+    @head = aux
+  end
+
+  def erase_tail()
+    aux = @tail[:next]
+    aux[:prev] = nil
+    @tail = aux
+  end
+
+
+
+
 end
