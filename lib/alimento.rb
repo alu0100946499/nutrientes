@@ -46,3 +46,25 @@ require "alimento/version"
 
   end
 
+  
+  class PesMar < Alimento
+    attr_reader :grupo
+
+    def initialize(nombre, proteinas, glucidos, lipidos)
+      super(nombre, proteinas, glucidos, lipidos)
+      @grupo = "Pescados y Mariscos"
+    end
+
+  end
+
+
+  class AliGra < Alimento
+    attr_reader :grupo
+
+    def initialize(nombre, proteinas, glucidos, lipidos)
+      super(nombre, proteinas, glucidos, lipidos)
+      @grupo = "Alimentos Grasos"
+    end
+
+  end
+

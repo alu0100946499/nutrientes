@@ -25,8 +25,18 @@ require "rspec/core/rake_task"
       sh "rspec -I. spec/HueLacHel_spec.rb"
   end
 
-  desc "ejecutar las expectativas de CarDer"
+  desc "Ejecutar las expectativas de CarDer"
     task :cd do
       sh "rspec -I. spec/CarDer_spec.rb"
+  end
+  
+  desc "Ejecutar las expectativas de PesMar"
+    task :pm do
+      sh "rspec -I. spec/PesMar_spec.rb"
+  end
+
+  desc "Ejecutar las expectativas de AliGra"
+    task :ag do
+      sh "rspec -I. spec/AliGra_spec.rb"
   end
 
