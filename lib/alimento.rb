@@ -1,6 +1,7 @@
 require "alimento/version"
 
   class  Alimento
+    include Comparable    
       
     attr_reader :nombre, :proteinas, :glucidos, :lipidos
 
@@ -13,7 +14,35 @@ require "alimento/version"
     end
 
     def to_s
-      "%-15s" % ["#{@nombre.capitalize}: "] + "#{@proteinas} #{@glucidos} #{@lipidos}"
+      "%-15s" % ["#{@nombre.capitalize}: "] + "#{@proteinas} #{@glucidos} #{@lipidos}" + " grupo: #{@grupo}"
+    end
+
+    def <=>(other)
+      return nil unless other.is_a?Alimento
+      self.val_energ <=> other.val_energ
     end
 
   end
+
+
+  class HueLacHel < Alimento
+    attr_reader :grupo
+
+    def initialize(nombre, proteinas, glucidos, lipidos)
+      super(nombre, proteinas, glucidos, lipidos)
+      @grupo = "Huevos, Lácteos y Helado"
+    end
+   
+  end
+
+
+  class CarDer < Alimento
+    attr_reader :grupo
+
+    def initialize(nombre, proteinas, glucidos, lipidos)
+      super(nombre, proteinas, glucidos, lipidos)
+      @grupo = "Carnes y Derivados"
+    end
+
+  end
+
