@@ -50,3 +50,12 @@ require "rspec/core/rake_task"
       sh "rspec -I. spec/VerHor_spec.rb"
   end
 
+  desc "Ejecutar las expectativas de FrutaS"
+    task :f do
+      sh "rspec -I. spec/Frutas_spec.rb"
+  end
+
+  desc "Ejecutar las expectativas de Bebidas"
+    task :b do
+      sh "rspec -I. spec/Bebidas_spec.rb"
+  end

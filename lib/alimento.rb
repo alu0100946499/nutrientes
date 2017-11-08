@@ -90,3 +90,24 @@ require "alimento/version"
 
   end
 
+  
+  class Frutas < Alimento
+    attr_reader :grupo
+
+    def initialize(nombre, proteinas, glucidos, lipidos)
+      super(nombre, proteinas, glucidos, lipidos)
+      @grupo = "Frutas"
+    end
+
+  end
+
+
+  class Bebidas < Alimento
+    attr_reader :grupo
+
+    def initialize(nombre, proteinas, glucidos, lipidos)
+      super(nombre, proteinas, glucidos, lipidos)
+      @grupo = "Bebidas"
+    end
+
+  end
