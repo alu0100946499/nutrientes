@@ -68,3 +68,25 @@ require "alimento/version"
 
   end
 
+
+  class AliRicCar < Alimento
+    attr_reader :grupo
+
+    def initialize(nombre, proteinas, glucidos, lipidos)
+      super(nombre, proteinas, glucidos, lipidos)
+      @grupo = "Alimentos Ricos en Carbohidratos"
+    end
+
+  end
+  
+  
+  class VerHor < Alimento
+    attr_reader :grupo
+
+    def initialize(nombre, proteinas, glucidos, lipidos)
+      super(nombre, proteinas, glucidos, lipidos)
+      @grupo = "Verduras y Hortalizas"
+    end
+
+  end
+

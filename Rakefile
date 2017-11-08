@@ -39,4 +39,14 @@ require "rspec/core/rake_task"
     task :ag do
       sh "rspec -I. spec/AliGra_spec.rb"
   end
+  
+  desc "Ejecutar las expectativas de AliRicCar"
+    task :arc do
+      sh "rspec -I. spec/AliRicCar_spec.rb"
+  end
+
+  desc "Ejecutar las expectativas de VerHor"
+    task :vh do
+      sh "rspec -I. spec/VerHor_spec.rb"
+  end
 
