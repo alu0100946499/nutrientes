@@ -1,24 +1,41 @@
 require "alimento/version"
+  # encoding: utf-8
+  # Este módulo se ha creado para la asignatura de
+  # Lenguajes y Paradigmas de la Programación impartida
+  # en la Universidad de la Laguna como práctica,
+  # haciendo uso del lenguaje de programación Ruby.
+  #
+  # Author::    Javier Esteban Pérez Rivas (mailto:alu0100946499@ull.edu.es)
+  # Copyright:: Creative Commons
+  # License::   Distributes under the same terms as Ruby
 
   module Alimento
+
+    # Esta clase permite representar un alimento.
+    # Se ha incluido el mixin Comparable.
 
     class  Alimento
       include Comparable    
       
       attr_reader :nombre, :proteinas, :glucidos, :lipidos
-
+      
+      # Se guarda el nombre y valor para proteínas, glúcidos y lípidos.
       def initialize(nombre, proteinas, glucidos, lipidos)
         @nombre, @proteinas, @glucidos, @lipidos = nombre.to_s, proteinas, glucidos, lipidos
       end
 
+      # Calcula el valor enérgetico del alimento.
       def val_energ
         @proteinas*4+@glucidos*4+@lipidos*9
       end
 
+      # Muestra la información del objeto formateada. Lo convierte a string.
       def to_s
         "%-15s" % ["#{@nombre.capitalize}: "] + "#{@proteinas} #{@glucidos} #{@lipidos}" + " grupo: #{@grupo}"
       end
 
+      # Se define para incluir el mixin comparable
+      # Se usa como valor para la comparación el valor energético.
       def <=>(other)
         return nil unless other.is_a?Alimento
         self.val_energ <=> other.val_energ
@@ -28,6 +45,11 @@ require "alimento/version"
 
 
     class HueLacHel < Alimento
+
+    # Esta clase permite representar alimentos dentro
+    # del grupo "Huevos, Lácteos y Helado".
+    # Hereda de la clase alimento.
+
       attr_reader :grupo
 
       def initialize(nombre, proteinas, glucidos, lipidos)
@@ -39,6 +61,11 @@ require "alimento/version"
 
 
     class CarDer < Alimento
+
+    # Esta clase permite representar alimentos dentro
+    # del grupo "Carnes y Derivados".
+    # Hereda de la clase alimento.
+
       attr_reader :grupo
 
       def initialize(nombre, proteinas, glucidos, lipidos)
@@ -50,6 +77,11 @@ require "alimento/version"
 
   
     class PesMar < Alimento
+
+    # Esta clase permite representar alimentos dentro
+    # del grupo "Pescados y Mariscos".
+    # Hereda de la clase alimento.
+
       attr_reader :grupo
 
       def initialize(nombre, proteinas, glucidos, lipidos)
@@ -61,6 +93,11 @@ require "alimento/version"
 
 
     class AliGra < Alimento
+
+    # Esta clase permite representar alimentos dentro
+    # del grupo "Alimentos Grasos".
+    # Hereda de la clase alimento.
+
       attr_reader :grupo
 
       def initialize(nombre, proteinas, glucidos, lipidos)
@@ -72,6 +109,11 @@ require "alimento/version"
 
 
     class AliRicCar < Alimento
+
+    # Esta clase permite representar alimentos dentro
+    # del grupo "Alimentos Ricos en Carbohidratos".
+    # Hereda de la clase alimento.
+
       attr_reader :grupo
 
       def initialize(nombre, proteinas, glucidos, lipidos)
@@ -83,6 +125,11 @@ require "alimento/version"
   
   
     class VerHor < Alimento
+
+    # Esta clase permite representar alimentos dentro
+    # del grupo "Verduras y Hortalizas".
+    # Hereda de la clase alimento.
+
       attr_reader :grupo
 
       def initialize(nombre, proteinas, glucidos, lipidos)
@@ -94,6 +141,11 @@ require "alimento/version"
 
   
     class Frutas < Alimento
+
+    # Esta clase permite representar alimentos dentro
+    # del grupo "Frutas".
+    # Hereda de la clase alimento.
+
       attr_reader :grupo
 
       def initialize(nombre, proteinas, glucidos, lipidos)
@@ -105,6 +157,11 @@ require "alimento/version"
 
 
     class Bebidas < Alimento
+
+    # Esta clase permite representar alimentos dentro
+    # del grupo "Bebidas".
+    # Hereda de la clase alimento.
+
       attr_reader :grupo
 
       def initialize(nombre, proteinas, glucidos, lipidos)
