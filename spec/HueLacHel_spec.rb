@@ -1,12 +1,12 @@
 require "spec_helper"
-require "/home/usuario/LPP/alimento/lib/alimento.rb"
+
 include RSpec
 
-  RSpec.describe HueLacHel do
+  RSpec.describe Alimento::HueLacHel do
     before :all do
-      @ali1 = HueLacHel.new("Huevo frito", 14.1, 0.0, 19.5)
-      @ali2 = HueLacHel.new("Leche vaca", 3.3, 4.8, 3.2)
-      @ali3 = HueLacHel.new("Yogurt", 3.8, 4.9, 3.8)
+      @ali1 = Alimento::HueLacHel.new("Huevo frito", 14.1, 0.0, 19.5)
+      @ali2 = Alimento::HueLacHel.new("Leche vaca", 3.3, 4.8, 3.2)
+      @ali3 = Alimento::HueLacHel.new("Yogurt", 3.8, 4.9, 3.8)
     end
 
     describe "#Comprobar que se crea bien" do

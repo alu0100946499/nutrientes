@@ -3,7 +3,7 @@ require "rspec/core/rake_task"
 
 #RSpec::Core::RakeTask.new(:spec)
 
-  task :default => :her
+  task :default => :spec
 
   desc "Ejecutar las expectativas de la clase DLL"
     task :dll do

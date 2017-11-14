@@ -1,12 +1,12 @@
 require "spec_helper"
-require "/home/usuario/LPP/alimento/lib/alimento.rb"
+
 include RSpec
 
-  RSpec.describe CarDer do
+  RSpec.describe Alimento::CarDer do
     before :all do
-      @ali1 = CarDer.new("Cerdo", 21.5, 0.0, 6.3)
-      @ali2 = CarDer.new("Ternera", 21.1, 0.0, 3.1)
-      @ali3 = CarDer.new("Pollo", 20.6, 0.0, 5.6)
+      @ali1 = Alimento::CarDer.new("Cerdo", 21.5, 0.0, 6.3)
+      @ali2 = Alimento::CarDer.new("Ternera", 21.1, 0.0, 3.1)
+      @ali3 = Alimento::CarDer.new("Pollo", 20.6, 0.0, 5.6)
     end
 
     describe "#Comprobar que se crea bien" do

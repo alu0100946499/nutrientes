@@ -1,10 +1,10 @@
 require "spec_helper"
-require_relative "../lib/DLL.rb"
+require_relative "../lib/DLL/fuente.rb"
 include RSpec
 
   RSpec.describe DLL do 
     before :each do
-      @lista = DLL.new()
+      @lista = DLL::DLL.new()
     end
   
     describe "#Comprobar que se crea vacía" do
@@ -26,7 +26,7 @@ include RSpec
     describe "#Comprobar que se insertan bien los elementos por el frente" do
       it "Se insertan bien el 2 y el 5" do
         @lista.insert_head(2)
-        aux = DLL::Node.new(2, nil, nil)
+        aux = DLL::DLL::Node.new(2, nil, nil)
         expect(@lista.head).to eq(aux)
         expect(@lista.tail).to eq(aux)
       end
@@ -35,7 +35,7 @@ include RSpec
     describe "#Comprobar que se insertan bien los elementos por el final" do
       it "Se inserta bien el 2 y el 5" do
         @lista.insert_tail(2)
-        aux = DLL::Node.new(2, nil, nil)
+        aux = DLL::DLL::Node.new(2, nil, nil)
         expect(@lista.head).to eq(aux)
         expect(@lista.tail).to eq(aux)
       end

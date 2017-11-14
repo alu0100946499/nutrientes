@@ -1,12 +1,12 @@
 require "spec_helper"
-require_relative "../lib/alimento.rb"
+
 include RSpec
 
-  RSpec.describe PesMar do
+  RSpec.describe Alimento::PesMar do
     before :all do
-      @ali1 = PesMar.new("Bacalao", 17.7, 0.0, 0.4)
-      @ali2 = PesMar.new("Atún", 21.5, 0.0, 15.5)
-      @ali3 = PesMar.new("Salmón", 19.9, 0.0, 13.6)
+      @ali1 = Alimento::PesMar.new("Bacalao", 17.7, 0.0, 0.4)
+      @ali2 = Alimento::PesMar.new("Atún", 21.5, 0.0, 15.5)
+      @ali3 = Alimento::PesMar.new("Salmón", 19.9, 0.0, 13.6)
     end
 
     describe "#Comprobar que se crea bien" do

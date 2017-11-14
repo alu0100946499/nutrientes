@@ -1,11 +1,11 @@
 require "spec_helper"
-require "/home/usuario/LPP/alimento/lib/alimento.rb"
+require_relative "../lib/alimento/fuente.rb"
 include RSpec
 
 
   RSpec.describe Alimento do
     before :all do
-      @ali = Alimento.new('Yogurt', 3.8, 4.9, 3.8)
+      @ali = Alimento::Alimento.new('Yogurt', 3.8, 4.9, 3.8)
   end
 
   describe "# almacenamiento del alimento" do

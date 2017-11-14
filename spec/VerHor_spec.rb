@@ -1,12 +1,12 @@
 require "spec_helper"
-require_relative "../lib/alimento.rb"
+
 include RSpec
 
-  RSpec.describe VerHor do
+  RSpec.describe Alimento::VerHor do
     before :all do
-      @ali1 = VerHor.new("Tomate", 1.0, 3.5, 0.2)
-      @ali2 = VerHor.new("Cebolla", 1.3, 5.8, 0.3)
-      @ali3 = VerHor.new("Calabaza", 1.1, 4.8, 0.1)
+      @ali1 = Alimento::VerHor.new("Tomate", 1.0, 3.5, 0.2)
+      @ali2 = Alimento::VerHor.new("Cebolla", 1.3, 5.8, 0.3)
+      @ali3 = Alimento::VerHor.new("Calabaza", 1.1, 4.8, 0.1)
     end
 
     describe "#Comprobar que se crea bien" do

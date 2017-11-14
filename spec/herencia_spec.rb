@@ -1,19 +1,19 @@
 require "spec_helper"
-require "/home/usuario/LPP/alimento/lib/alimento.rb"
+
 include RSpec
 
-  RSpec.describe HueLacHel do
+  RSpec.describe Alimento::HueLacHel do
     before :all do 
-      @ali = HueLacHel.new("Yogurt", 3.8, 4.9, 3.8)
+      @ali = Alimento::HueLacHel.new("Yogurt", 3.8, 4.9, 3.8)
     end
    
     describe "#Comprobar a que clase pertenece" do
       it "Su clase es HueLacHel" do
-        expect(@ali.instance_of?HueLacHel).to eq(true)
+        expect(@ali.instance_of?Alimento::HueLacHel).to eq(true)
       end
   
       it "Su clase no es Alimento" do
-        expect(@ali.instance_of?Alimento).to eq(false)
+        expect(@ali.instance_of?Alimento::Alimento).to eq(false)
       end
     end
 
@@ -33,7 +33,7 @@ include RSpec
 
     describe "#Comprobar si pertenece a una jerarquía" do
       it "Es un alimento" do
-        expect(@ali.is_a?Alimento).to eq(true)
+        expect(@ali.is_a?Alimento::Alimento).to eq(true)
       end
 
       it "Es un objeto" do

@@ -1,12 +1,12 @@
 require "spec_helper"
-require_relative "../lib/alimento.rb"
+
 include RSpec
 
-  RSpec.describe AliGra do
+  RSpec.describe Alimento::AliGra do
     before :all do
-      @ali1 = AliGra.new("Aceite de oliva", 0.0, 0.2, 99.6)
-      @ali2 = AliGra.new("Mantequilla", 0.7, 0.0, 83.2)
-      @ali3 = AliGra.new("Chocolate", 5.3, 47.0, 30.0)
+      @ali1 = Alimento::AliGra.new("Aceite de oliva", 0.0, 0.2, 99.6)
+      @ali2 = Alimento::AliGra.new("Mantequilla", 0.7, 0.0, 83.2)
+      @ali3 = Alimento::AliGra.new("Chocolate", 5.3, 47.0, 30.0)
     end
 
     describe "#Comprobar que se crea bien" do
