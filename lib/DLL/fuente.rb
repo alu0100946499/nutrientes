@@ -1,6 +1,7 @@
 module DLL
   
   class DLL
+    include Enumerable
 
     Node = Struct.new(:value, :next, :prev)
 
@@ -69,6 +70,14 @@ module DLL
       aux = @tail[:next]
       aux[:prev] = nil
       @tail = aux
+    end
+
+    def each
+      aux = @tail
+      while (aux != nil) do
+        yield aux[:value]
+        aux = aux.next
+      end
     end
 
   end 

@@ -68,6 +68,48 @@ include RSpec
       end
     end
 
+    describe "#Comprobar que la clase DLL es enumerable" do
+      before :each do
+        @lista.insert_head(1, 3, 2, 7, 5, 9)
+      end
+
+      it "Comprobando los métodos collect y map" do
+        expect(@lista.collect{ |x| x*x}).to eq([1, 9, 4, 49, 25, 81])
+        expect(@lista.map{ |x| x*x}).to eq([1, 9, 4, 49, 25, 81])
+      end
+ 
+      it "Comprobando el método count" do
+        expect(@lista.count).to eq(6)
+      end
+
+      it "Comprobando el método max, min y sort" do
+        expect(@lista.max).to eq(9)
+        expect(@lista.min).to eq(1)
+        expect(@lista.sort).to eq([1, 2, 3, 5, 7, 9])
+      end
+
+      it "Comprobando el método include?" do
+        expect(@lista.include? 2).to eq(true)
+        expect(@lista.include? 4).to eq(false)
+      end
+
+      it "Comprobando los métodos detect y find" do
+        expect(@lista.detect{ |x| x % 2 == 0}).to eq(2)
+        expect(@lista.find{ |x| x % 3 == 0}).to eq(3)
+      end
+
+      it "Comprobando el método drop" do
+        expect(@lista.drop(1)).to eq([3, 2, 7, 5, 9])
+      end
+
+      it "Comprobando el método cycle" do
+        sum = 0
+        @lista.cycle(2){|x| sum += x}
+        expect(sum).to eq(54)
+      end
+
+    end	
+
 
 
   end
