@@ -1,5 +1,5 @@
 require "alimento/version"
-  # encoding: utf-8
+
   # Este módulo se ha creado para la asignatura de
   # Lenguajes y Paradigmas de la Programación impartida
   # en la Universidad de la Laguna como práctica,
@@ -27,6 +27,12 @@ require "alimento/version"
       # Calcula el valor enérgetico del alimento.
       def val_energ
         @proteinas*4+@glucidos*4+@lipidos*9
+      end
+
+      def aibc(array)
+        bfr = array.collect{|x| x-array[0]}
+        res = array.drop(1).collect!{|x| if x < array[0] then 0.0 else x-array[0] end}.zip(bfr).collect!{|x, y| if x!=0.0 then (x+y)*2.5 else 0.0 end}
+        res.reduce(:+)
       end
 
       # Muestra la información del objeto formateada. Lo convierte a string.

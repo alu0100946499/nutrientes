@@ -71,6 +71,17 @@ include RSpec
     end
 
   end
+
+  describe "#Comprobaciones para calcular el índice glucémico de un alimento" do
+    it "Funciona correctamente aibc" do
+      a = [5, 1, 2, 3, 4, 6, 7, 8, 9]
+      b = [6.7, 6.5, 6.8, 6.9, 7.0]
+      expect(@ali1.aibc(a)).to eq(37.5)
+      expect(@ali1.aibc(b).round(2)).to eq(1.75)
+    end
+
+
+  end
   
 
 end
