@@ -78,6 +78,14 @@ include RSpec
       b = [6.7, 6.5, 6.8, 6.9, 7.0]
       expect(@ali1.aibc(a)).to eq(37.5)
       expect(@ali1.aibc(b).round(2)).to eq(1.75)
+      expect(@ali1.aibc([6.7, 6.5, 6.8, 6.9, 7.0, 7.1]).round(2)).to eq(3.5)
+      expect(@ali1.aibc([4.6, 4.8, 5.3, 5.6, 6.1, 6.5]).round(2)).to eq(21.75)
+      expect(@ali1.aibc([4.9, 5.3, 5.9, 6.7, 7.2, 7.6]).round(2)).to eq(34.25)
+      expect(@ali1.aibc([6.3, 5.4, 5.6, 5.7, 6.5, 7.4]).round(2)).to eq(2.25)
+    end
+
+    it "Funciona correctamente ind_gluc" do
+      expect(@ali1.ind_glu("spec/pruebas/prueba1.txt").round(2)).to eq(488.44)
     end
 
 

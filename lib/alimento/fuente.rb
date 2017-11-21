@@ -35,6 +35,30 @@ require "alimento/version"
         res.reduce(:+)
       end
 
+      def ind_glu(filename)
+        file = File.new(filename.to_s, "r")
+        number = file.gets
+
+        inds = []
+        number.to_i.times {
+          aux = file.gets.split(" ").collect{|x| x.to_f}
+          inds << aux
+        }
+
+        glucs = []
+        number.to_i.times {
+          aux = file.gets.split(" ").collect{|x| x.to_f}
+          glucs << aux
+        }
+
+
+        inds.collect!{|x| aibc(x)}
+        glucs.collect!{|x| aibc(x)}
+
+        res = inds.zip(glucs).collect{|x, y| x/y*100}.reduce(:+)/2
+
+      end
+
       # Muestra la información del objeto formateada. Lo convierte a string.
       def to_s
         "%-15s" % ["#{@nombre.capitalize}: "] + "#{@proteinas} #{@glucidos} #{@lipidos}" + " grupo: #{@grupo}"
