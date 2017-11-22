@@ -28,13 +28,15 @@ require "alimento/version"
       def val_energ
         @proteinas*4+@glucidos*4+@lipidos*9
       end
-
+      
+      # Calcula el área incremental bajo de la curva del array de datos que recibe.
       def aibc(array)
         bfr = array.collect{|x| x-array[0]}
         res = array.drop(1).collect!{|x| if x < array[0] then 0.0 else x-array[0] end}.zip(bfr).collect!{|x, y| if x!=0.0 then (x+y)*2.5 else 0.0 end}
         res.reduce(:+)
       end
 
+      # Calcula el índice glucémico del alimento cuyos datos haya en el fichero que recibe.
       def ind_glu(filename)
         file = File.new(filename.to_s, "r")
         number = file.gets
