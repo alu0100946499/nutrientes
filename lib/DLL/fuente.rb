@@ -1,4 +1,13 @@
-module Alimento
+# Este módulo se ha creado para la asignatura de
+# Lenguajes y Paradigmas de la Programación impartida
+# en la Universidad de la Laguna como práctica,
+# haciendo uso del lenguaje de programación Ruby.
+#
+# Author::    Javier Esteban Pérez Rivas (mailto:alu0100946499@ull.edu.es)
+# Copyright:: Creative Commons
+# License::   Distributes under the same terms as Ruby
+
+module DLL
 
   # Esta clase permite crear una lista 
   # doblemente enlazada.

@@ -85,6 +85,10 @@
     
     <li ><a href="#method-i-3C-3D-3E">#&lt;=&gt;</a>
     
+    <li ><a href="#method-i-aibc">#aibc</a>
+    
+    <li ><a href="#method-i-ind_glu">#ind_glu</a>
+    
     <li ><a href="#method-i-to_s">#to_s</a>
     
     <li ><a href="#method-i-val_energ">#val_energ</a>
@@ -247,10 +251,99 @@ comparación el valor energético.</p>
 
           
           <div class="method-source-code" id="3C-3D-3E-source">
-            <pre><span class="ruby-comment"># File lib/alimento/fuente.rb, line 39</span>
+            <pre><span class="ruby-comment"># File lib/alimento/fuente.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">is_a?</span><span class="ruby-constant">Alimento</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">val_energ</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">val_energ</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-aibc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">aibc</span><span
+            class="method-args">(array)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Calcula el área incremental bajo de la curva del array de datos que recibe.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="aibc-source">
+            <pre><span class="ruby-comment"># File lib/alimento/fuente.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">aibc</span>(<span class="ruby-identifier">array</span>)
+  <span class="ruby-identifier">bfr</span> = <span class="ruby-identifier">array</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span><span class="ruby-operator">-</span><span class="ruby-identifier">array</span>[<span class="ruby-value">0</span>]}
+  <span class="ruby-identifier">res</span> = <span class="ruby-identifier">array</span>.<span class="ruby-identifier">drop</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">collect!</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">array</span>[<span class="ruby-value">0</span>] <span class="ruby-keyword">then</span> <span class="ruby-value">0.0</span> <span class="ruby-keyword">else</span> <span class="ruby-identifier">x</span><span class="ruby-operator">-</span><span class="ruby-identifier">array</span>[<span class="ruby-value">0</span>] <span class="ruby-keyword">end</span>}.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">bfr</span>).<span class="ruby-identifier">collect!</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">x!</span>=<span class="ruby-value">0.0</span> <span class="ruby-keyword">then</span> (<span class="ruby-identifier">x</span><span class="ruby-operator">+</span><span class="ruby-identifier">y</span>)<span class="ruby-operator">*</span><span class="ruby-value">2.5</span> <span class="ruby-keyword">else</span> <span class="ruby-value">0.0</span> <span class="ruby-keyword">end</span>}
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-value">:+</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ind_glu" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ind_glu</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Calcula el índice glucémico del alimento cuyos datos haya en el fichero que
+recibe.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ind_glu-source">
+            <pre><span class="ruby-comment"># File lib/alimento/fuente.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ind_glu</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-string">&quot;r&quot;</span>)
+  <span class="ruby-identifier">number</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gets</span>
+
+  <span class="ruby-identifier">inds</span> = []
+  <span class="ruby-identifier">number</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">times</span> {
+    <span class="ruby-identifier">aux</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">to_f</span>}
+    <span class="ruby-identifier">inds</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">aux</span>
+  }
+
+  <span class="ruby-identifier">glucs</span> = []
+  <span class="ruby-identifier">number</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">times</span> {
+    <span class="ruby-identifier">aux</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">to_f</span>}
+    <span class="ruby-identifier">glucs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">aux</span>
+  }
+
+
+  <span class="ruby-identifier">inds</span>.<span class="ruby-identifier">collect!</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">aibc</span>(<span class="ruby-identifier">x</span>)}
+  <span class="ruby-identifier">glucs</span>.<span class="ruby-identifier">collect!</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">aibc</span>(<span class="ruby-identifier">x</span>)}
+
+  <span class="ruby-identifier">res</span> = <span class="ruby-identifier">inds</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">glucs</span>).<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span><span class="ruby-operator">/</span><span class="ruby-identifier">y</span><span class="ruby-operator">*</span><span class="ruby-value">100</span>}.<span class="ruby-identifier">reduce</span>(<span class="ruby-value">:+</span>)<span class="ruby-operator">/</span><span class="ruby-value">2</span>
+
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -281,7 +374,7 @@ comparación el valor energético.</p>
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/alimento/fuente.rb, line 33</span>
+            <pre><span class="ruby-comment"># File lib/alimento/fuente.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-string">&quot;%-15s&quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-node">&quot;#{@nombre.capitalize}: &quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{@proteinas} #{@glucidos} #{@lipidos}&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot; grupo: #{@grupo}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
