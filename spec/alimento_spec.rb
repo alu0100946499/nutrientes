@@ -103,8 +103,22 @@ include RSpec
               Alimento::Frutas.new("Manzana", 0.3, 12.4, 0.4), Alimento::Frutas.new("Plátanos", 1.2, 21.4, 0.2), Alimento::Frutas.new("Pera", 0.5, 12.7, 0.3)]
     end
 
-    it "La funcion sort con blucle for funciona correctamente" do
+    it "La función sort con blucle for funciona correctamente" do
       arr = @vect.for_sort
+      cadena = String.new()
+      arr.each{|x| cadena << "#{x.nombre}, "}
+      expect(cadena).to eq("Tomate, Calabaza, Cebolla, Manzana, Pera, Leche vaca, Yogurt, Papas, Bacalao, Plátanos, Ternera, Pollo, Cerdo, Salmón, Atún, Huevo frito, Lentejas, Arroz, Azúcar, Chocolate, Mantequilla, Aceite de oliva, ")
+    end
+
+    it "La función sort con each funciona correctamente" do
+      arr = @vect.each_sort
+      cadena = String.new()
+      arr.each{|x| cadena << "#{x.nombre}, "}
+      expect(cadena).to eq("Tomate, Calabaza, Cebolla, Manzana, Pera, Leche vaca, Yogurt, Papas, Bacalao, Plátanos, Ternera, Pollo, Cerdo, Salmón, Atún, Huevo frito, Lentejas, Arroz, Azúcar, Chocolate, Mantequilla, Aceite de oliva, ")
+    end
+
+    it "La función sort funciona correctamente" do
+      arr = @vect.sort
       cadena = String.new()
       arr.each{|x| cadena << "#{x.nombre}, "}
       expect(cadena).to eq("Tomate, Calabaza, Cebolla, Manzana, Pera, Leche vaca, Yogurt, Papas, Bacalao, Plátanos, Ternera, Pollo, Cerdo, Salmón, Atún, Huevo frito, Lentejas, Arroz, Azúcar, Chocolate, Mantequilla, Aceite de oliva, ")

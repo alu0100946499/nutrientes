@@ -211,5 +211,6 @@ require "alimento/version"
 
     end
 
+  MAX = Alimento.new("MAX", Float::MAX, Float::MAX, Float::MAX)
 
   end

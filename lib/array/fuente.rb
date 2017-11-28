@@ -10,8 +10,15 @@
       res
     end
 
-
-
-
+    def each_sort
+      vector = Array.new(self)
+      res = []
+      vector.each{
+        min = vector.min
+        res << min
+        vector[vector.index(min)] = Alimento::MAX
+      }
+      res
+    end
 
   end
