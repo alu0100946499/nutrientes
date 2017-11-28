@@ -73,6 +73,14 @@ require "alimento/version"
         self.val_energ <=> other.val_energ
       end
 
+      def ==(other)
+        if other.is_a?Alimento
+	  self.nombre == other.nombre && self.proteinas == other.proteinas && self.glucidos == other.glucidos && self.lipidos == other.lipidos
+        else
+          false
+        end
+      end
+
     end
 
 
@@ -202,5 +210,6 @@ require "alimento/version"
       end
 
     end
+
 
   end

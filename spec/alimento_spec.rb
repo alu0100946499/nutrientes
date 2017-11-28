@@ -1,5 +1,6 @@
 require "spec_helper"
 require_relative "../lib/alimento/fuente.rb"
+require_relative "../lib/array/fuente.rb"
 include RSpec
 
 
@@ -10,7 +11,7 @@ include RSpec
       @ali3 = Alimento::Alimento.new("Chocolate", 5.3, 47.0, 30.0)
       @ali4 = Alimento::Alimento.new("Lentejas", 23.5, 52.0, 1.4)
       @ali5 = Alimento::Alimento.new("Tomate", 1.0, 3.5, 0.2)
-  end
+    end
 
   describe "# almacenamiento del alimento" do
     it "Se almacena el nombre" do
@@ -90,6 +91,25 @@ include RSpec
 
 
   end
-  
+
+  describe "#Comprobar las funciones de ordenación" do
+    before :each do
+      @vect = [Alimento::HueLacHel.new("Huevo frito", 14.1, 0.0, 19.5), Alimento::HueLacHel.new("Leche vaca", 3.3, 4.8, 3.2), Alimento::HueLacHel.new("Yogurt", 3.8, 4.9, 3.8),
+              Alimento::CarDer.new("Cerdo", 21.5, 0.0, 6.3), Alimento::CarDer.new("Ternera", 21.1, 0.0, 3.1), Alimento::CarDer.new("Pollo", 20.6, 0.0, 5.6),
+              Alimento::PesMar.new("Bacalao", 17.7, 0.0, 0.4), Alimento::PesMar.new("Atún", 21.5, 0.0, 15.5), Alimento::PesMar.new("Salmón", 19.9, 0.0, 13.6),
+              Alimento::AliGra.new("Aceite de oliva", 0.0, 0.2, 99.6), Alimento::AliGra.new("Mantequilla", 0.7, 0.0, 83.2), Alimento::AliGra.new("Chocolate", 5.3, 47.0, 30.0),
+              Alimento::AliRicCar.new("Azúcar", 0.0, 99.8, 0.0), Alimento::AliRicCar.new("Arroz", 6.8, 77.7, 0.6), Alimento::AliRicCar.new("Lentejas", 23.5, 52.0, 1.4), Alimento::AliRicCar.new("Papas", 2.0, 15.4, 0.1),
+              Alimento::VerHor.new("Tomate", 1.0, 3.5, 0.2), Alimento::VerHor.new("Cebolla", 1.3, 5.8, 0.3), Alimento::VerHor.new("Calabaza", 1.1, 4.8, 0.1),
+              Alimento::Frutas.new("Manzana", 0.3, 12.4, 0.4), Alimento::Frutas.new("Plátanos", 1.2, 21.4, 0.2), Alimento::Frutas.new("Pera", 0.5, 12.7, 0.3)]
+    end
+
+    it "La funcion sort con blucle for funciona correctamente" do
+      arr = @vect.for_sort
+      cadena = String.new()
+      arr.each{|x| cadena << "#{x.nombre}, "}
+      expect(cadena).to eq("Tomate, Calabaza, Cebolla, Manzana, Pera, Leche vaca, Yogurt, Papas, Bacalao, Plátanos, Ternera, Pollo, Cerdo, Salmón, Atún, Huevo frito, Lentejas, Arroz, Azúcar, Chocolate, Mantequilla, Aceite de oliva, ")
+    end
+
+  end
 
 end
