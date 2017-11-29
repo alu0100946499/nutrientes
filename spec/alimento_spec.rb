@@ -1,8 +1,9 @@
+require 'benchmark'
 require "spec_helper"
 require_relative "../lib/alimento/fuente.rb"
 require_relative "../lib/array/fuente.rb"
 include RSpec
-
+include Benchmark
 
   RSpec.describe Alimento do
     before :all do
@@ -124,6 +125,17 @@ include RSpec
       expect(cadena).to eq("Tomate, Calabaza, Cebolla, Manzana, Pera, Leche vaca, Yogurt, Papas, Bacalao, Plátanos, Ternera, Pollo, Cerdo, Salmón, Atún, Huevo frito, Lentejas, Arroz, Azúcar, Chocolate, Mantequilla, Aceite de oliva, ")
     end
 
+    it "Informe de tiempo" do
+      n = 50000
+      Benchmark.benchmark(CAPTION, 7, FORMAT, ">total:", ">media:") do |x|
+        tf = x.report("sort:") { n.times{@vect.sort}}
+        tt = x.report("each:") { n.times{@vect.each_sort}}
+        tu = x.report("for:")  { n.times{@vect.for_sort}}
+        [tf+tt+tu, (tf+tt+tu)/3]
+      end
+
+    end
+
   end
 
-end
+  end
