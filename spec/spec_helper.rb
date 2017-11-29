@@ -1,3 +1,5 @@
+require "coveralls"
+Coverall.wear!
 require "bundler/setup"
 require "alimento"
 
