@@ -50,6 +50,21 @@ module Alimento
       end
     end
 
+    def to_s
+      total = 0
+      output = @name
+      output << "\n#{'=' * @name.size}\n\n"
+      output << "Composición nutricional:\n"
+      output << "%20s" % "" + "%-10s" % "glúcidos" + "%-10s" %  "proteínas" + "%-10s" % "lípidos" + "%-20s" % "valor energético\n"
+      @vegetales.each{ |x, y| output << "%-20s" % x.nombre + "%-10s" % x.glucidos + "%-10s" % x.proteinas + "%-10s" % x.lipidos + "%-20f\n" % (x.val_energ/100*y); total += x.val_energ/100*y}
+      @frutas.each{ |x, y| output << "%-20s" % x.nombre + "%-10s" % x.glucidos + "%-10s" % x.proteinas + "%-10s" % x.lipidos + "%-20f\n" % (x.val_energ/100*y); total += x.val_energ/100*y}
+      @granos.each{ |x, y| output << "%-20s" % x.nombre + "%-10s" % x.glucidos + "%-10s" % x.proteinas + "%-10s" % x.lipidos + "%-20f\n" % (x.val_energ/100*y); total += x.val_energ/100*y}
+      @proteinas.each{ |x, y| output << "%-20s" % x.nombre + "%-10s" % x.glucidos + "%-10s" % x.proteinas + "%-10s" % x.lipidos + "%-20f\n" % (x.val_energ/100*y); total += x.val_energ/100*y}
+      @aceites.each{ |x, y| output << "%-20s" % x.nombre + "%-10s" % x.glucidos + "%-10s" % x.proteinas + "%-10s" % x.lipidos + "%-20f\n" % (x.val_energ/100*y); total += x.val_energ/100*y}
+      output << "%-41s" % "Valor energético total" + "%20f" % total
+      output
+    end
+
   end
 
 end
