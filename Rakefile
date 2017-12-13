@@ -59,3 +59,8 @@ require "rspec/core/rake_task"
     task :b do
       sh "rspec -I. spec/Bebidas_spec.rb"
   end
+ 
+  desc "Ejecutar las expectativas de Plaro"
+    task :plato do
+      sh "rspec -I. spec/plato_spec.rb"
+  end
