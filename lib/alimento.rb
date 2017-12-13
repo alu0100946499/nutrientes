@@ -10,7 +10,7 @@ require "alimento/version.rb"
                   VerHor.new("Tomate", 1.0, 3.5, 0.2), VerHor.new("Cebolla", 1.3, 5.8, 0.3), VerHor.new("Calabaza", 1.1, 4.8, 0.1),
                   Frutas.new("Manzana", 0.3, 12.4, 0.4), Frutas.new("Platano", 1.2, 21.4, 0.2), Frutas.new("Pera", 0.5, 12.7, 0.3)]
   
-    $equivalencias = {"cucharada": 20, cucharadita: 5, cucharón: 240, taza: 150, tacita: 50, tazón: 300, pieza: 100, piezapequena: 50, piezagrande: 200, vaso: 220}    
+    $equivalencias = {cucharada: 20, cucharadita: 5, cucharón: 240, taza: 150, tacita: 50, tazón: 300, pieza: 100, piezapequena: 50, piezagrande: 200, vaso: 220, gramo: 1}    
 
 
 
