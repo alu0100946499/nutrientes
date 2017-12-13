@@ -1,9 +1,12 @@
 module Alimento
 
+  #Esta clase permite representar un plato
+
   class Plato
 
     attr_accessor :name, :vegetales, :frutas, :granos, :proteinas, :aceites
-
+   
+    #Se guarda el nombre del plato y se recibe un bloque con los ingredientes
     def initialize(name, &block)
       @name = name
       @vegetales = []
@@ -21,6 +24,7 @@ module Alimento
       end
     end
     
+    #Guarda un alimento dentro de la clase
     def ingrediente(grupo, nombre, medida)
       alimento = $alimentos.find{|x| x.nombre == nombre}
       aux = medida.split(" ").first.split("/")
@@ -50,6 +54,7 @@ module Alimento
       end
     end
 
+    #Muestra el contenido del plato
     def to_s
       total = 0
       output = @name
